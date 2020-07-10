@@ -6,6 +6,10 @@ from lxml import etree
 
 from DFSpider.parser import parser
 
+'''
+xpath解析器
+'''
+
 
 class xpath_parser(parser):
     def __init__(self, conductor: dict):
@@ -18,7 +22,9 @@ class xpath_parser(parser):
         response = rsp.content.decode()
         html = etree.HTML(response)
         for k in self.conductor:
+            print("将" + k + "数据放入容器")
             container[k] = html.xpath(self.conductor[k])
+        print("响应数据装载完成\n\n")
         return container
 
     def execute(self, url):
