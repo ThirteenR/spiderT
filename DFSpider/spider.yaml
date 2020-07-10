@@ -1,0 +1,29 @@
+http:
+  url: https://xa.lianjia.com/ershoufang/pg{}/
+  headers:
+    ser-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+
+# data_mode: db,csv
+data_mode: csv
+# parse_mode: xpath,bs4
+parse_mode: xpath
+
+csv:
+  fieldnames: ['houseInfo', 'title', 'positionInfo', 'totalPrice', 'unitPrice', 'followInfo', 'tag']
+  filepath: data/xi'an
+
+db:
+  host: localhost
+  user: root
+  password: root
+  database: test
+  charset: utf8
+
+xpath:
+  houseInfo: //div[@class="houseInfo"]/text()
+  title: //div[@class="title"]/a/text()
+  positionInfo: //div[@class="positionInfo"]/a/text()
+  totalPrice: //div[@class="totalPrice"]/span/text()
+  unitPrice: //div[@class="unitPrice"]/span/text()
+  followInfo: //div[@class="followInfo"]/text()
+  tag: //div[@class="tag"]/span/text()
