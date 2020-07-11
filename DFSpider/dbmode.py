@@ -27,7 +27,7 @@ class db_mode:
     def insert(self, filednames: list, rows: list):
         fl = ",".join(filednames)
         value = self.get_value()
-        sql = "INSERT INTO " + self.table + " (" + fl + ")  VALUES (" + value + ")"
+        sql = "INSERT INTO " + self.table + "  VALUES (" + value + ")"
         print(sql)
         self.connect.cursor().executemany(sql, rows)
         self.connect.commit()

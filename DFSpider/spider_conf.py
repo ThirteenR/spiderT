@@ -8,8 +8,8 @@ import yaml
 class conf:
     conf_y = dict()
 
-    def __init__(self, path):
-        with open(path, "rb") as y:
+    def __init__(self, name):
+        with open("DFSpider/" + name + "_yaml.yaml", "rb") as y:
             data = yaml.safe_load_all(y)
             self.conf_y = list(data)[0]
 

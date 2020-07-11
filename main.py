@@ -1,5 +1,5 @@
 from DFSpider.dbmode import db_mode
-from DFSpider.lj_spider import lj_spider
+from DFSpider.df_spider import lj_spider
 from DFSpider.xpath_parser import xpath_parser
 from DFSpider.spider_conf import conf
 
@@ -9,7 +9,7 @@ from DFSpider.spider_conf import conf
 '''
 
 if __name__ == "__main__":
-    conf = conf("DFSpider/lj_yaml.yaml")  # 加载配置文件
+    conf = conf("yc")  # 加载配置文件
     conf_y = conf.conf_y
     conductor = conf_y['xpath']
     url = conf_y['http']['url']
@@ -20,9 +20,10 @@ if __name__ == "__main__":
     dbinfo = conf_y['db']['info']
     table = conf_y['db']['table']
     filepath = conf_y['csv']['filepath']
-
-    db = db_mode(**dbinfo)
-    db.creat_table(**table)
+    db = None
+    if data_mode == 'db':
+        db = db_mode(**dbinfo)
+        db.creat_table(**table)
     ps = xpath_parser(conductor)  # 实例化xpath解析器
     # 实例化链家的爬虫，并指定解析规则
     lj = lj_spider(

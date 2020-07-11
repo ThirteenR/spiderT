@@ -1,0 +1,33 @@
+http:
+  url: http://car.bitauto.com/xuanchegongju/?p=8-12&page={}
+  headers:
+    ser-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+
+# data_mode: db,csv
+data_mode: db
+# parse_mode: xpath,bs4
+parse_mode: xpath
+
+csv:
+  fieldnames: ['car_name', 'car_price','image']
+  filepath: data/yicar
+
+db:
+  info:
+    host: localhost
+    user: root
+    password: root
+    database: test
+    charset: utf8
+  table:
+    name: allcar
+    field:
+      car_name VARCHAR(20),car_price VARCHAR(100),image VARCHAR(1024)
+
+xpath:
+  car_name: //div[@class='search-result-list-item']/a/p[1]/text()
+  car_price: //div[@class='search-result-list-item']/a/p[2]/text()
+  image: //div[@class='search-result-list-item']/a/img/@src
+
+
+

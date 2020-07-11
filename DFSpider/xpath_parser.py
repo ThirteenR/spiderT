@@ -22,6 +22,8 @@ class xpath_parser(parser):
         for k in self.conductor:
             print("将" + k + "数据放入容器")
             container[k] = html.xpath(self.conductor[k])
+            print("riles: " + self.conductor[k])
+            print("Matching data: " + str(container[k]))
         print("响应数据装载完成\n\n")
         return container
 

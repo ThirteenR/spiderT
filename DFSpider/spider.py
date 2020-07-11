@@ -32,6 +32,7 @@ class spider:
     def _request(self, i):
         time.sleep(2)
         url_str: str = self.url.format(i)  # 构造请求url
+        print("request url: " + url_str)
         rsp = requests.get(url_str, headers=self.headers)
         response = rsp.content.decode()
         self.container = self.ps.parse_content_rsp(response)  # 调用解析器获取响应的数据，返回一个数据容器
@@ -56,7 +57,9 @@ class spider:
             yield str(self.container[k][i])
 
     def _save_data_db(self, page_num):
+        print("Save data with db mode >>>>>")
         pass
 
     def _save_data_csv(self, page_num):
+        print("Save data with cvs mode >>>>>")
         pass

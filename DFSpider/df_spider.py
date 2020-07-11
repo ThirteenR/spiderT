@@ -13,11 +13,12 @@ class lj_spider(spider):
         self.db: dbmode.db_mode = params['db'] if 'db' in params else None
 
     def execute(self):
-        super().execute()
         print('lj_spider is active')
+        super().execute()
 
     # 实现spider数据保存模式
     def _save_data_csv(self, page_num):
+        super()._save_data_csv(page_num)
         k = int(str(page_num / 5).split(".")[0])
         file_csv = self.filepath + '-' + str(k) + ".csv"
         with open(file_csv, "a", newline="", encoding="utf-8-sig") as f:
@@ -28,7 +29,7 @@ class lj_spider(spider):
             print("写入" + file_csv + "共" + str(len(rows)) + "条数据\n\n")
 
     def _get_rows(self):
-        count = len(self.container['houseInfo']) + 1
+        count = len(list(self.container.values())[0]) + 1
         rows = []
         for i in xrange(1, count):
             content = []  # 定义一个列表行
@@ -43,5 +44,6 @@ class lj_spider(spider):
         return rows
 
     def _save_data_db(self, page_num):
+        super()._save_data_db(page_num)
         rows = self._get_rows()
         self.db.insert(self.fieldnames, rows)
