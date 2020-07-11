@@ -16,10 +16,8 @@ class xpath_parser(parser):
         self.conductor = conductor
         super().__init__()
 
-    def parse_content_rsp(self, rsp) -> dict:
-        time.sleep(2)
-        container: Dict[Any, Any] = {}
-        response = rsp.content.decode()
+    def parse_content_rsp(self, response) -> dict:
+        container = {}
         html = etree.HTML(response)
         for k in self.conductor:
             print("将" + k + "数据放入容器")

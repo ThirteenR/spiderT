@@ -1,0 +1,33 @@
+http:
+  url: http://car.bitauto.com/xuanchegongju/?p={}
+  headers:
+    ser-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+
+# data_mode: db,csv
+data_mode: db
+# parse_mode: xpath,bs4
+parse_mode: xpath
+
+csv:
+  fieldnames: ['houseInfo', 'title', 'positionInfo', 'totalPrice', 'unitPrice', 'followInfo', 'tag']
+  filepath: data/xi'an
+
+db:
+  info:
+    host: localhost
+    user: root
+    password: root
+    database: test
+    charset: utf8
+  table:
+    name: xi_an
+    field:
+      houseInfo VARCHAR(512),title VARCHAR(512),positionInfo VARCHAR(512),totalPrice VARCHAR(512),
+      unitPrice VARCHAR(512),followInfo VARCHAR(512),tag VARCHAR(512)
+
+xpath:
+   car_name: //div[@class='search-result-list-item']/a/p[@class=cx-name']/text()
+   car_price: //div[@class='search-result-list-item']/a/p[@class=cx-price']/text()
+
+
+

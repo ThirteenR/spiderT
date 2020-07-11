@@ -4,7 +4,7 @@ http:
     ser-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
 
 # data_mode: db,csv
-data_mode: csv
+data_mode: db
 # parse_mode: xpath,bs4
 parse_mode: xpath
 
@@ -13,11 +13,17 @@ csv:
   filepath: data/xi'an
 
 db:
-  host: localhost
-  user: root
-  password: root
-  database: test
-  charset: utf8
+  info:
+    host: localhost
+    user: root
+    password: root
+    database: test
+    charset: utf8
+  table:
+    name: xi_an
+    field:
+      houseInfo VARCHAR(512),title VARCHAR(512),positionInfo VARCHAR(512),totalPrice VARCHAR(512),
+      unitPrice VARCHAR(512),followInfo VARCHAR(512),tag VARCHAR(512)
 
 xpath:
   houseInfo: //div[@class="houseInfo"]/text()
@@ -27,3 +33,6 @@ xpath:
   unitPrice: //div[@class="unitPrice"]/span/text()
   followInfo: //div[@class="followInfo"]/text()
   tag: //div[@class="tag"]/span/text()
+
+
+
