@@ -8,8 +8,9 @@ data_mode: db
 # parse_mode: xpath,bs4
 parse_mode: xpath
 
+data_header: ['houseInfo', 'title', 'positionInfo', 'totalPrice', 'unitPrice', 'followInfo', 'tag']
+
 csv:
-  fieldnames: ['houseInfo', 'title', 'positionInfo', 'totalPrice', 'unitPrice', 'followInfo', 'tag']
   filepath: data/xi'an
 
 db:
