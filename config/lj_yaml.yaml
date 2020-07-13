@@ -1,3 +1,13 @@
+#
+# http 需要爬取得网站的请求配置
+# data_mode 数据保存模式，目前为两种模式一种csv、database
+# data_header 爬取数据的字段列表
+# pg_count 需要爬取的页面总数
+# csv csv模式下的文件路径和文件名前缀
+# db database模式下的数据库配置信息，以及建表信息
+# xpath 解析HTML所要遵循的规则，
+#
+
 http:
   url: https://xa.lianjia.com/ershoufang/pg{}/
   headers:
