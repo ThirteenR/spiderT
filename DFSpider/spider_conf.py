@@ -9,7 +9,7 @@ class conf:
     conf_y = dict()
 
     def __init__(self, name):
-        with open("DFSpider/" + name + "_yaml.yaml", "rb") as y:
+        with open("config/" + name + "_yaml.yaml", "rb") as y:
             data = yaml.safe_load_all(y)
             self.conf_y = list(data)[0]
 
