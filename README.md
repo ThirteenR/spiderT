@@ -34,4 +34,4 @@
 
 ## 重构计划
 ##### 目前项目结构比较草率，下一步准备重构代码，思维导图如下：
-![初步重构计划思维导图](https://github.com/ThirteenR/spiderT/RefactorMind.pdf)
+![初步重构计划思维导图](https://github.com/ThirteenR/spiderT/blob/master/RefactorMind.pdf)
